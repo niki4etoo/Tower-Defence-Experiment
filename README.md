@@ -2,9 +2,11 @@
 
 ### This respository is for educational and training purposes.
 
+[tick]: https://cdn0.iconfinder.com/data/icons/fatcow/32x32/tick.png "(done!)"
+
 Task To Do
 
-* Fullscreen Mode
+* Fullscreen Mode ![alt text][tick]
 * Simple Menu
 * Map
 * Player
@@ -14,3 +16,5 @@ Task To Do
 * Paths
 * Scores
 * Waves
+
+
