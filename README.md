@@ -4,5 +4,5 @@
 
 Task To Do
 
-..*Fullscreen Mode
+* Fullscreen Mode
 
