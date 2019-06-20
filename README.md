@@ -2,19 +2,6 @@
 
 ### This respository is for educational and for training purposes.
 
-[tick]: https://cdn0.iconfinder.com/data/icons/fatcow/32x32/tick.png "(done!)"
-
-Task To Do
-
-* Fullscreen Mode ![alt text][tick]
-* Simple Menu
-* Map
-* Player
-* Enemy
-* Land
-* Tower
-* Paths
-* Scores
-* Waves
+The main reason for creating this repository is to make very simple tower defence game with only one level for now.
 
 
