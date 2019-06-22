@@ -1,6 +1,8 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+#include "../include/Map.hpp"
+
 using namespace sf;
 
 
@@ -19,6 +21,11 @@ int main(void)
   // Create a an SFML View for the main action
 	View mainView(sf::FloatRect(0, 0, resolution.x, resolution.y));
 
+  //Drawing the main elements in the game ( to do )
+  RectangleShape exampleMenu(Vector2f(resolution.x / 2, 60));
+  exampleMenu.setPosition(resolution.x / 2, 0);
+  exampleMenu.setFillColor(Color::White);
+
   // run the program as long as the window is open
   while (window.isOpen())
   {
@@ -33,6 +40,11 @@ int main(void)
           }
 
       }
+      window.clear();
+
+      window.draw(exampleMenu);
+
+      window.display();
   }
 
   return 0;
