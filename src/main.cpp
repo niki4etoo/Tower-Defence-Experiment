@@ -17,15 +17,21 @@ int main(void)
 
 	RenderWindow window(VideoMode(resolution.x, resolution.y),
 		"Tower Defence Experiment", Style::Fullscreen);
-
+  window.setFramerateLimit(60);
+  
   // Create a an SFML View for the main action
 	View mainView(sf::FloatRect(0, 0, resolution.x, resolution.y));
 
   //Drawing the main elements in the game ( to do )
-  // ExampleMenu
-  RectangleShape exampleMenu(Vector2f(resolution.x / 2, 60));
-  exampleMenu.setPosition(resolution.x / 2, 0);
-  exampleMenu.setFillColor(Color::White);
+  // Draw background color
+  RectangleShape background;
+  background.setSize(Vector2f(resolution.x, resolution.y));
+  background.setPosition(Vector2f(0, 0));
+  background.setFillColor(Color(120, 80, 20));
+  // MainMenu
+  RectangleShape mainMenu(Vector2f((resolution.x / 2) - 250, 60));
+  mainMenu.setPosition((resolution.x / 2) + 250, 0);
+  mainMenu.setFillColor(Color(0, 245, 30));
 
   //Drawing the path
   RectangleShape beginPath;
@@ -37,10 +43,44 @@ int main(void)
   middlePath.setSize(Vector2f(100, 400));
   middlePath.setPosition(Vector2f(resolution.x - (resolution.x / 2), 100));
   middlePath.setFillColor(Color(150, 150, 180));
+
   RectangleShape endPath;
   endPath.setSize(Vector2f(500, 100));
   endPath.setPosition(Vector2f(resolution.x - (resolution.x / 2) - 500, 400));
   endPath.setFillColor(Color(150, 150, 180));
+
+  // Drawing the land
+  RectangleShape landBack;
+  landBack.setSize(Vector2f(150, 300));
+  landBack.setPosition(Vector2f(0, 300));
+  landBack.setFillColor(Color(180, 0, 0));
+
+  RectangleShape landFront;
+  landFront.setSize(Vector2f(200, 200));
+  landFront.setPosition(Vector2f(0, 350));
+  landFront.setFillColor(Color(140, 0, 0));
+
+  // Drawing the towers
+  RectangleShape towerOneOutside;
+  towerOneOutside.setSize(Vector2f(125, 125));
+  towerOneOutside.setPosition(Vector2f(resolution.x - (resolution.x / 2) - 200, 200));
+  towerOneOutside.setFillColor(Color(120, 145, 145));
+
+  RectangleShape towerOneInside;
+  towerOneInside.setSize(Vector2f(75, 75));
+  towerOneInside.setPosition(Vector2f(resolution.x - (resolution.x / 2) - 175, 225));
+  towerOneInside.setFillColor(Color(120, 185, 185));
+
+  RectangleShape towerTwoOutside;
+  towerTwoOutside.setSize(Vector2f(125, 125));
+  towerTwoOutside.setPosition(Vector2f(resolution.x - (resolution.x / 2) + 175, 300));
+  towerTwoOutside.setFillColor(Color(120, 145, 145));
+
+  RectangleShape towerTwoInside;
+  towerTwoInside.setSize(Vector2f(75, 75));
+  towerTwoInside.setPosition(Vector2f(resolution.x - (resolution.x / 2) + 200, 325));
+  towerTwoInside.setFillColor(Color(120, 185, 185));
+
 
   // run the program as long as the window is open
   while (window.isOpen())
@@ -58,13 +98,26 @@ int main(void)
       }
       window.clear();
 
+      window.draw(background);
       //Drawing the example menu on the map
-      window.draw(exampleMenu);
+      window.draw(mainMenu);
 
       //Drawing the path on the map
       window.draw(beginPath);
       window.draw(middlePath);
       window.draw(endPath);
+
+      //Drawing the land on the map
+      window.draw(landBack);
+      window.draw(landFront);
+
+      //Drawing the towers
+      window.draw(towerOneOutside);
+      window.draw(towerOneInside);
+
+      window.draw(towerTwoOutside);
+      window.draw(towerTwoInside);
+
 
       window.display();
   }
