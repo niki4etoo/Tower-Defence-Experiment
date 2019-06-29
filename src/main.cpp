@@ -2,9 +2,9 @@
 #include <SFML/Graphics.hpp>
 
 #include "../include/Map.hpp"
+#include "../include/Tower.hpp"
 
 using namespace sf;
-
 
 int main(void)
 {
@@ -18,7 +18,7 @@ int main(void)
 	RenderWindow window(VideoMode(resolution.x, resolution.y),
 		"Tower Defence Experiment", Style::Fullscreen);
   window.setFramerateLimit(60);
-  
+
   // Create a an SFML View for the main action
 	View mainView(sf::FloatRect(0, 0, resolution.x, resolution.y));
 
@@ -28,6 +28,7 @@ int main(void)
   background.setSize(Vector2f(resolution.x, resolution.y));
   background.setPosition(Vector2f(0, 0));
   background.setFillColor(Color(120, 80, 20));
+
   // MainMenu
   RectangleShape mainMenu(Vector2f((resolution.x / 2) - 250, 60));
   mainMenu.setPosition((resolution.x / 2) + 250, 0);
@@ -61,24 +62,39 @@ int main(void)
   landFront.setFillColor(Color(140, 0, 0));
 
   // Drawing the towers
+  Tower tower1 = Tower();
+  Tower tower2 = Tower();
+
+  tower1.set_tower1_init_out_pos_x(resolution.x - (resolution.x / 2) - 200);
+  tower1.set_tower1_init_out_pos_y(200);
+  tower1.set_tower1_init_in_pos_x(resolution.x - (resolution.x / 2) - 175);
+  tower1.set_tower1_init_in_pos_y(225);
+
+  tower2.set_tower2_init_out_pos_x(resolution.x - (resolution.x / 2) + 175);
+  tower2.set_tower2_init_out_pos_y(300);
+  tower2.set_tower2_init_in_pos_x(resolution.x - (resolution.x / 2) + 200);
+  tower2.set_tower2_init_in_pos_y(325);
+
   RectangleShape towerOneOutside;
   towerOneOutside.setSize(Vector2f(125, 125));
-  towerOneOutside.setPosition(Vector2f(resolution.x - (resolution.x / 2) - 200, 200));
+  towerOneOutside.setPosition(Vector2f(tower1.get_tower1_init_out_pos_x(), tower1.get_tower1_init_out_pos_y()));
   towerOneOutside.setFillColor(Color(120, 145, 145));
+
+
 
   RectangleShape towerOneInside;
   towerOneInside.setSize(Vector2f(75, 75));
-  towerOneInside.setPosition(Vector2f(resolution.x - (resolution.x / 2) - 175, 225));
+  towerOneInside.setPosition(Vector2f(tower1.get_tower1_init_in_pos_x(), tower1.get_tower1_init_in_pos_y()));
   towerOneInside.setFillColor(Color(120, 185, 185));
 
   RectangleShape towerTwoOutside;
   towerTwoOutside.setSize(Vector2f(125, 125));
-  towerTwoOutside.setPosition(Vector2f(resolution.x - (resolution.x / 2) + 175, 300));
+  towerTwoOutside.setPosition(Vector2f(tower2.get_tower2_init_out_pos_x(),tower2.get_tower2_init_out_pos_y()));
   towerTwoOutside.setFillColor(Color(120, 145, 145));
 
   RectangleShape towerTwoInside;
   towerTwoInside.setSize(Vector2f(75, 75));
-  towerTwoInside.setPosition(Vector2f(resolution.x - (resolution.x / 2) + 200, 325));
+  towerTwoInside.setPosition(Vector2f(tower2.get_tower2_init_in_pos_x(), tower2.get_tower2_init_in_pos_y()));
   towerTwoInside.setFillColor(Color(120, 185, 185));
 
 
