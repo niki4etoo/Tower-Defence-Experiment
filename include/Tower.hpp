@@ -2,6 +2,14 @@
 
 using namespace std;
 
+struct out {
+  float pos_x, pos_y, width, height;
+};
+
+struct in {
+  float pos_x, pos_y, width, height;
+};
+
 class Tower {
 private:
   // Types of towers

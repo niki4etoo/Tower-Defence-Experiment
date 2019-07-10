@@ -4,29 +4,6 @@ class Map {
 private:
   // Position of every element on the map
 
-  // Position of the towers
-  float tower1_init_out_pos_x;
-  float tower1_init_out_pos_y;
-  float tower2_init_out_pos_x;
-  float tower2_init_out_pos_y;
-
-  float tower1_init_in_pos_x;
-  float tower1_init_in_pos_y;
-  float tower2_init_in_pos_x;
-  float tower2_init_in_pos_y;
-
-  // Sizes of the towers
-  float tower1_init_in_width;
-  float tower1_init_in_height;
-  float tower1_init_out_width;
-  float tower1_init_out_height;
-
-  float tower2_init_in_width;
-  float tower2_init_in_height;
-  float tower2_init_out_width;
-  float tower2_init_out_height;
-
-
   //Paths ( origin and size)
   //Beginning
   float path_begin_x;
@@ -68,28 +45,6 @@ private:
 
 public:
   //Getters and Setters
-
-  // Setters for the two towers in the map
-  void set_tower1_init_in_pos_x(float x);
-  void set_tower2_init_in_pos_x(float x);
-  void set_tower1_init_in_pos_y(float y);
-  void set_tower2_init_in_pos_y(float y);
-
-  void set_tower1_init_out_pos_x(float x);
-  void set_tower2_init_out_pos_x(float x);
-  void set_tower1_init_out_pos_y(float y);
-  void set_tower2_init_out_pos_y(float y);
-
-  // Getters for the two towers in the map
-  float get_tower1_init_in_pos_x();
-  float get_tower2_init_in_pos_x();
-  float get_tower1_init_in_pos_y();
-  float get_tower2_init_in_pos_y();
-
-  float get_tower1_init_out_pos_x();
-  float get_tower2_init_out_pos_x();
-  float get_tower1_init_out_pos_y();
-  float get_tower2_init_out_pos_y();
 
   // Setters for the paths on the map
   void set_path_begin_pos_x(float x);
