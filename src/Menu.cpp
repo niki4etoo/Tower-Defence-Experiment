@@ -1,18 +1,42 @@
-#include <SFML/Graphics>
-#include "include/Menu.h"
+#include "../include/Menu.hpp"
 
-Menu::loadWaves(){
+void Menu::loadWaves(){
   //to do
 }
 
-Menu::loadScores(){
+void Menu::loadScores(){
   //to do
 }
 
-Menu::loadResources(){
+void Menu::loadResources(){
   //to do
 }
 
-Menu::loadRemainingLives(){
+void Menu::loadRemainingLives(){
   //to do
+}
+
+
+void Menu::set_menu_pos(float x, float y){
+
+}
+
+void Menu::set_menu_size(float width, float height){
+
+}
+
+float Menu::get_menu_pos_x(){
+
+}
+
+float Menu::get_menu_pos_y(){
+
+}
+
+float Menu::get_menu_width(){
+
+}
+
+float Menu::get_menu_height(){
+
 }
