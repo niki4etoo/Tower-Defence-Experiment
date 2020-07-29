@@ -5,6 +5,7 @@
 using namespace std;
 using namespace glfw_app;
 
+
 int main(int argc, char **argv)
 {
 	MyApp app;

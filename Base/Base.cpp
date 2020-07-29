@@ -1,3 +1,5 @@
 class Base {
-	
+
+public:
+	Base(){};
 };

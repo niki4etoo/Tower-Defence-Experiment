@@ -5,9 +5,11 @@ INCLUDE_DIR_DATABASE = Database/
 INCLUDE_DIR_MAP = Map/
 INCLUDE_DIR_UI = UI/
 INCLUDE_DIR_PLAYER = Player/
-INCLUDE_DIR_GLFW = -Iinclude/
+INCLUDE_DIR_GLFW = -I/include/
 LINK_LIBS = -lGL -lGLEW -lglfw
 LIBRARIES = -L/Libraries/
+
+
 
 main:
 	g++ -std=c++17 -Wall -o tde $(INCLUDE_DIR_TOWERS)Tower.cpp main.cpp $(LINK_LIBS)
