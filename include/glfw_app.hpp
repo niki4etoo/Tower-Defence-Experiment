@@ -11,7 +11,7 @@ struct App{
     Window mWindow;
     Window& window() { return mWindow; }
 
-    App(int w = 640, int h=480)  {
+    App(int w = 640, int h = 480, const char *title = "Example Window")  {
 
       /*-----------------------------------------------------------------------------
        *  Initialize GLFW
@@ -19,7 +19,7 @@ struct App{
       if( !glfwInit() ) exit(EXIT_FAILURE);
       printf("glfw initialized \n");
 
-      mWindow.create(this,w,h);       //<-- Create the window, passing this application to it
+      mWindow.create(this,w,h,title);       //<-- Create the window, passing this application to it
       printf("glfw window created \n");
 
       /*-----------------------------------------------------------------------------

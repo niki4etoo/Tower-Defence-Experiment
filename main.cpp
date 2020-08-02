@@ -1,13 +1,14 @@
 #include "glfw_app.hpp"
 
 #include "include/Tower.h"
+#include "include/Grid.h"
 
 using namespace std;
 using namespace glfw_app;
 
 struct MyApp : App {
 
-  MyApp() : App() {}
+  MyApp() : App(800, 600, "Tower Defence Experiment") {}
 
     virtual void onDraw(){
     }
@@ -26,9 +27,12 @@ struct MyApp : App {
 
 int main(int argc, char **argv)
 {
+	Tower tower;
+
+  Grid grid;
+
 	MyApp app;
   app.start();
 
-	Tower tower;
 	return 0;
 }

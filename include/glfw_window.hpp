@@ -16,7 +16,7 @@ namespace glfw_app {
  *-----------------------------------------------------------------------------*/
 struct Interface {
 
-  static void * app; // <-- an unknown application to be defined later
+  static void * app;
 
   template<class APPLICATION>
   static void OnKeyDown(GLFWwindow* window, int key, int scancode, int action, int mods){
@@ -57,7 +57,7 @@ struct Window {
 
     //Create a Window Context
     template<class APPLICATION>
-    void create(APPLICATION * app, int w, int h, const char * name="example window"){
+    void create(APPLICATION * app, int w, int h, const char * name){
 
         interface.app = app;
 
@@ -105,6 +105,6 @@ struct Window {
     }
 };
 
-} //glfw_app namespace 
+} //glfw_app namespace
 
 #endif
