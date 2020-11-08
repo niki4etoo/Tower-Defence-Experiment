@@ -8,7 +8,7 @@
 
 using namespace std;
 
-namespace glfw_app {
+namespace glfw_game_app {
 
 
 /*-----------------------------------------------------------------------------
@@ -105,6 +105,6 @@ struct Window {
     }
 };
 
-} //glfw_app namespace
+} //glfw_game_app namespace
 
 #endif

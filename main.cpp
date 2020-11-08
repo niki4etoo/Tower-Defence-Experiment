@@ -3,35 +3,33 @@
 #include "include/Tower.h"
 #include "include/Grid.h"
 
-using namespace std;
-using namespace glfw_app;
 
-struct MyApp : App {
+using namespace glfw_game_app;
 
-  MyApp() : App(800, 600, "Tower Defence Experiment") {}
+struct TDE_Game : Game {
+
+  TDE_Game() : Game(800, 600, "Tower Defence Experiment") {}
 
     virtual void onDraw(){
     }
 
     virtual void onMouseMove(int x, int y){
-        cout << x << " " << y << endl;
+      std::cout << x << " " << y << std::endl;
     }
     virtual void onMouseDown(int button, int action){
         
     }
     virtual void onKeyDown(int key, int action){
-        cout << (unsigned char)key << endl;
+      std::cout << (unsigned char)key << std::endl;
     }
 };
 
 int main(int argc, char **argv)
 {
-	Tower tower;
-
+  Tower tower;
   Grid grid;
+  TDE_Game game;
+  game.start();
 
-	MyApp app;
-  app.start();
-
-	return 0;
+  return 0;
 }

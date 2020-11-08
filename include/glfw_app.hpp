@@ -2,30 +2,28 @@
 #define  _GLFW_APP_HPP_
 
 #include "glfw_window.hpp" //<-- Our GLFW Window
+#define WINDOW_WIDTH 640
+#define WINDOW_HEIGHT 480
 
+namespace glfw_game_app {
 
-namespace glfw_app {
-
-struct App{
+struct Game{
 
     Window mWindow;
     Window& window() { return mWindow; }
 
-    App(int w = 640, int h = 480, const char *title = "Example Window")  {
+    Game(int w = WINDOW_WIDTH, int h = WINDOW_HEIGHT, const char *title = "TDE - Tower Defence Experiment")  {
 
       /*-----------------------------------------------------------------------------
        *  Initialize GLFW
        *-----------------------------------------------------------------------------*/
       if( !glfwInit() ) exit(EXIT_FAILURE);
-      printf("glfw initialized \n");
-
-      mWindow.create(this,w,h,title);       //<-- Create the window, passing this application to it
-      printf("glfw window created \n");
+      mWindow.create(this,w,h,title);
 
       /*-----------------------------------------------------------------------------
        *  Initialize GLEW
        *-----------------------------------------------------------------------------*/
-	    glewExperimental = true;
+      glewExperimental = true;
       GLenum glewError = glewInit();
       if (glewError != GLEW_OK){
        printf("glew init error\n%s\n", glewGetErrorString( glewError) );
@@ -55,7 +53,6 @@ struct App{
      *  Start the Draw Loop
      *-----------------------------------------------------------------------------*/
     void start(){
-      printf("app started\n");
       while ( !mWindow.shouldClose() ){
 
         mWindow.setViewport();
@@ -76,7 +73,7 @@ struct App{
     /*-----------------------------------------------------------------------------
      *  Properly terminate glfw when app closes
      *-----------------------------------------------------------------------------*/
-    ~App(){
+    ~Game(){
       glfwTerminate();
     }
 
@@ -89,7 +86,7 @@ struct App{
     virtual void onKeyDown(int key, int action){}
 };
 
-} //glfw_app namespace
+} //glfw_game_app namespace
 
 
 #endif   /* ----- #ifndef _GLFW_APP_HPP_ */
