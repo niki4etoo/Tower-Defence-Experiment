@@ -5,7 +5,7 @@ LIBS = -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl -lm
 SRC = main.cpp
 
 # Variables for debugging
-WARNINGS = -Wall -Wextra
+WARNINGS = -Wall
 GDB = -ggdb
 
 main:
