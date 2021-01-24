@@ -7,12 +7,9 @@
 
 #include "../include/Player.h"
 
-Player::Player() : id(0) {
-	// TODO Auto-generated constructor stub
-
+Player::Player(size_t id, std::string first_name, std::string last_name) : id(0), first_name(""), last_name("") {
+	
 }
 
-Player::~Player() {
-	// TODO Auto-generated destructor stub
-}
+Player::~Player() {}
 

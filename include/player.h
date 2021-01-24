@@ -10,24 +10,16 @@
 
 #include <string>
 
-// Headers needed for the player object
-#include "Inventory.h"
-#include "Coins.h"
-#include "Towers.h"
-#include "Heroes.h"
-
 class Player {
+	//Main Properties
+	size_t id;
+	std::string first_name;
+	std::string last_name;
+	
 public:
-	Player();
-	virtual ~Player();
+	Player(size_t id, std::string first_name, std::string second_name);
+	~Player();
 
-protected:
-	unsigned int id;
-	std::string name;
-	Inventory inventory;
-	Coins coins;
-	Towers towers;
-	Heroes heroes;
 };
 
 #endif /* PLAYER_H_ */
