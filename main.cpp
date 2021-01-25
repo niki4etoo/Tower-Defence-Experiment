@@ -3,10 +3,10 @@
 #include "include/libs/glm/gtc/matrix_transform.hpp"
 #include "include/libs/glm/gtc/type_ptr.hpp"
 
-
-
 #include <GLFW/glfw3.h>
 #include <iostream>
+
+#include "include/window_manager.h"
 
 #include "include/shader.h"
 #include "include/camera.h"
@@ -20,28 +20,13 @@ float lastFrame = 0.0f;
 
 int main(void)
 {
-	// glfw: initialize and configure
-    // ------------------------------
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
-
-	GLFWmonitor* primary = glfwGetPrimaryMonitor();
-	const GLFWvidmode* mode = glfwGetVideoMode(primary);
-	
-	const unsigned int SCR_WIDTH = mode->width;
-	const unsigned int SCR_HEIGHT = mode->height;
+	WindowManager *win_manager = new WindowManager();
 
 	Callbacks *callback = new Callbacks();
 
     // glfw window creation
     // --------------------
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "TDE", primary, NULL);
+    GLFWwindow* window = glfwCreateWindow(win_manager->getWidth(), win_manager->getHeight(), "TDE", win_manager->getMonitor(), NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -64,6 +49,87 @@ int main(void)
         return -1;
     }
     
+    Shader tdeShader("shaders/vertex_shader.glsl", "shaders/fragment_shader.glsl");
+    
+    // set up vertex data ( Cube )
+	// ------------------------------------------------------------------
+	float vertices[] = {
+		//front face
+		//first triangle       	//Texture coords
+		 0.5f,  0.5f, 0.5f,	 	1.0f, 1.0f,		//top right
+		 0.5f, -0.5f, 0.5f,  	1.0f, 0.0f,		//bottom right
+		-0.5f, -0.5f, 0.5f,		0.0f, 0.0f,		//bottom left
+		//second triangle
+		 0.5f,  0.5f, 0.5f,		1.0f, 1.0f,		//top right
+		-0.5f, -0.5f, 0.5f,		0.0f, 0.0f,		//bottom left
+		-0.5f,  0.5f, 0.5f,		0.0f, 1.0f,		//top left
+		
+		//back face
+		//first triangle		//Texture coords
+		0.5f,  0.5f, -0.5f,		1.0f, 1.0f, 	//top right
+		0.5f, -0.5f, -0.5f, 	1.0f, 0.0f,		//bottom right
+	   -0.5f, -0.5f, -0.5f, 	0.0f, 0.0f, 	//bottom left 
+	   //second triangle
+		0.5f,  0.5f, -0.5f,		1.0f, 1.0f,		//top right
+	   -0.5f, -0.5f, -0.5f,		0.0f, 0.0f,		//bottom left
+	   -0.5f,  0.5f, -0.5f,		0.0f, 1.0f,		//top left
+	   
+	   //top face
+	   //first triangle
+		0.5f,  0.5f, -0.5f,		1.0f, 1.0f, 	//top right
+		0.5f,  0.5f,  0.5f,		1.0f, 0.0f, 	//bottom right
+	   -0.5f,  0.5f,  0.5f,		0.0f, 0.0f, 	//bottom left
+	   //second triangle
+		0.5f,  0.5f, -0.5f,		1.0f, 1.0f, 	//top right
+	   -0.5f,  0.5f,  0.5f, 	0.0f, 0.0f, 	//bottom left
+	   -0.5f,  0.5f, -0.5f, 	0.0f, 1.0f, 	//top left
+	   
+	   //bottom face
+	   //first triangle
+	   0.5f, -0.5f, -0.5f, 		1.0f, 1.0f, 	//top right
+	   0.5f, -0.5f,  0.5f,		1.0f, 0.0f, 	//bottom right
+	  -0.5f, -0.5f,  0.5f,		0.0f, 0.0f, 	//bottom left
+	   //second triangle
+	   0.5f, -0.5f, -0.5f,		1.0f, 1.0f, 	//top right
+	  -0.5f, -0.5f,  0.5f,		0.0f, 0.0f,		//bottom left
+	  -0.5f, -0.5f, -0.5f, 		0.0f, 1.0f, 	//top left
+	  
+	  //left face
+	  //first triangle
+	  -0.5f,  0.5f,  0.5f,		1.0f, 1.0f,		//top right
+	  -0.5f, -0.5f,  0.5f, 		1.0f, 0.0f, 	//bottom right
+	  -0.5f, -0.5f, -0.5f, 		0.0f, 0.0f, 	//bottom left
+	  //second triangle
+	  -0.5f,  0.5f,  0.5f,		1.0f, 1.0f,		//top right
+	  -0.5f, -0.5f, -0.5f,		0.0f, 0.0f, 	//bottom left
+	  -0.5f,  0.5f, -0.5f,		0.0f, 1.0f, 	//top left
+	  
+	  //right face
+	  //first triangle
+	   0.5f,  0.5f,  0.5f,		1.0f, 1.0f,		//top right
+	   0.5f, -0.5f,  0.5f, 		1.0f, 0.0f, 	//bottom right
+	   0.5f, -0.5f, -0.5f, 		0.0f, 0.0f, 	//bottom left
+	  //second triangle
+	   0.5f,  0.5f,  0.5f,		1.0f, 1.0f,		//top right
+	   0.5f, -0.5f, -0.5f,		0.0f, 0.0f, 	//bottom left
+	   0.5f,  0.5f, -0.5f,		0.0f, 1.0f, 	//top left
+	};
+	
+	GLuint VAO, VBO;
+	glGenVertexArrays(1, &VAO);
+	glGenBuffers(1, &VBO);
+	
+	glBindVertexArray(VAO);
+	
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+	
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3*sizeof(float)));
+    
     InputProcessing *input = new InputProcessing();
     
     // render loop
@@ -84,6 +150,25 @@ int main(void)
         // ------
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+
+		tdeShader.use();
+		
+		// create transformations
+        glm::mat4 view          = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+        glm::mat4 projection    = glm::mat4(1.0f);
+        
+        projection = glm::perspective(glm::radians(mouse.fov), (float)win_manager->getWidth() / (float)win_manager->getHeight(), 0.1f, 150.0f);
+		view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+        
+        // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
+        tdeShader.setMat4("projection", projection);
+        tdeShader.setMat4("view", view);
+        
+		glBindVertexArray(VAO);
+		glm::mat4 model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -3.0f));
+		tdeShader.setMat4("model", model);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
