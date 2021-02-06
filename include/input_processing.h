@@ -1,7 +1,6 @@
 #ifndef _INPUT_PROCESSING_H
 #define _INPUT_PROCESSING_H
 
-
 class InputProcessing {
 	
 public:

@@ -12,9 +12,6 @@ WindowManager::WindowManager()
 #ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
-
-	//this->setMonitor(glfwGetPrimaryMonitor());
-	//this->mode = glfwGetVideoMode(this->getMonitor());
 	
 	this->width = 800;
 	this->height = 600;
