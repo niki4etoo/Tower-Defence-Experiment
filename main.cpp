@@ -18,6 +18,9 @@
 float deltaTime = 0.0f;	
 float lastFrame = 0.0f;
 
+const std::string error_text_glfw_window = "Failed to create Window.";
+const std::string error_text_glad_initialize = "Failed to initialize GLAD.";
+
 int main(void)
 {
 	WindowManager *win_manager = new WindowManager();
@@ -26,17 +29,17 @@ int main(void)
 
     // glfw window creation
     // --------------------
-    GLFWwindow* window = glfwCreateWindow(win_manager->getWidth(), win_manager->getHeight(), "TDE", win_manager->getMonitor(), NULL);
+    GLFWwindow* window = glfwCreateWindow(win_manager->getWidth(), win_manager->getHeight(), win_manager->getTitle().c_str(), win_manager->getMonitor(), NULL);
     if (window == NULL)
     {
-        std::cout << "Failed to create GLFW window" << std::endl;
+        std::cout << error_text_glfw_window << std::endl;
         glfwTerminate();
         return -1;
     }
     glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, callback->framebuffer_size_callback);
-    glfwSetCursorPosCallback(window, callback->mouse_callback);
-    glfwSetScrollCallback(window, callback->scroll_callback);
+    glfwSetFramebufferSizeCallback(window, callback->framebuffer_size);
+    glfwSetCursorPosCallback(window, callback->mouse_input);
+    glfwSetScrollCallback(window, callback->mouse_scroll);
 
     // tell GLFW to capture our mouse
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -45,7 +48,7 @@ int main(void)
     // ---------------------------------------
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
-        std::cout << "Failed to initialize GLAD" << std::endl;
+        std::cout << error_text_glad_initialize << std::endl;
         return -1;
     }
     
@@ -144,7 +147,7 @@ int main(void)
 
         // input
         // -----
-        input->keyboard_input(window, deltaTime);
+        input->keyboard_input(window, deltaTime, win_manager);
 
         // render
         // ------

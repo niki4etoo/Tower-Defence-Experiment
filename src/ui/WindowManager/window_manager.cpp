@@ -13,12 +13,21 @@ WindowManager::WindowManager()
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
-	this->setMonitor(glfwGetPrimaryMonitor());
-	const GLFWvidmode* mode = glfwGetVideoMode(this->getMonitor());
+	//this->setMonitor(glfwGetPrimaryMonitor());
+	//this->mode = glfwGetVideoMode(this->getMonitor());
 	
-	this->width = mode->width;
-	this->height = mode->height;
-	
+	this->width = 800;
+	this->height = 600;
+}
+
+void WindowManager::setTitle(std::string text)
+{
+	this->title = text;
+}
+
+std::string WindowManager::getTitle()
+{
+	return this->title;
 }
 
 void WindowManager::setWidth(int width)
@@ -41,6 +50,16 @@ int WindowManager::getHeight()
 	return this->height;
 }
 
+void WindowManager::setState(int state)
+{
+	this->state = state;
+}
+
+int WindowManager::getState()
+{
+	return this->state;
+}
+
 void WindowManager::setMonitor(GLFWmonitor *monitor)
 {
 	this->monitor = monitor;
@@ -49,4 +68,48 @@ void WindowManager::setMonitor(GLFWmonitor *monitor)
 GLFWmonitor* WindowManager::getMonitor()
 {
 	return this->monitor;
+}
+
+void WindowManager::toggleWindowSizes(GLFWwindow *window, int type)
+{
+	if(type >= 0 && type <= 3)
+	{
+		struct ScreenSizes screen_sizes;
+		
+		switch(type)
+		{
+			case 0:
+				{
+					this->width = screen_sizes.width[0];
+					this->height = screen_sizes.height[0];
+					glfwSetWindowSize(window, this->width, this->height);
+					this->setState(0);
+				}
+				break;
+			case 1:
+				{
+					this->width = screen_sizes.width[0];
+					this->height = screen_sizes.height[0];
+					glfwSetWindowSize(window, this->width, this->height);
+					this->setState(1);
+				}
+				break;
+			case 2:
+				{
+					this->width = screen_sizes.width[1];
+					this->height = screen_sizes.height[1];
+					glfwSetWindowSize(window, this->width, this->height);
+					this->setState(2);
+				}
+				break;
+			case 3:
+				{
+					this->width = screen_sizes.width[2];
+					this->height = screen_sizes.height[2];
+					glfwSetWindowSize(window, this->width, this->height);
+					this->setState(3);
+				}
+				break;
+		}
+	}
 }
