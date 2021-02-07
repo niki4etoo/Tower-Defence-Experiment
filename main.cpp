@@ -135,6 +135,8 @@ int main(void)
     
     InputProcessing *input = new InputProcessing();
     
+    unsigned int fps = 0;
+    float counter = 0.0f;
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
@@ -145,6 +147,17 @@ int main(void)
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
 
+		if((counter += deltaTime) > 1.0f)
+		{
+			std::cout << "FPS: " << fps << std::endl;
+			counter = 0.0f;
+			fps = 0;
+		}
+		else
+		{
+			fps++;
+		}
+	
         // input
         // -----
         input->keyboard_input(window, deltaTime, win_manager);
