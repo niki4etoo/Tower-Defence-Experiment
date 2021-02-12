@@ -12,13 +12,21 @@
 
 class Tower {
 private:
-	int id;
-	short damage;
-	short health;
+	size_t id;
+	unsigned short damage;
+	unsigned short health;
 	std::string name;
 public:
 	Tower();
 	~Tower();
+	void setID(size_t id);
+	size_t getID();
+	void setDamage(unsigned short damage);
+	unsigned short getDamage();
+	void setHealth(unsigned short health);
+	unsigned short getHealth();
+	void setName(std::string name);
+	std::string getName();
 };
 
 #endif /* TOWER_H_ */
