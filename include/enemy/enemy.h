@@ -1,17 +1,19 @@
-#include <iostream>
+#ifndef _ENEMY_H_
+#define _ENEMY_H_
 
+#include <string>
 
 class Enemy {
-private:
-	int _id;
-	char _type;
-	std::string _name;
-	unsigned short _health;
-	unsigned short _damage;
-	unsigned short _speed;
-	unsigned short _experience;
-
+	int id;
+	char type;
+	std::string name;
+	unsigned short health;
+	unsigned short damage;
+	unsigned short speed;
+	unsigned short experience;
 public:
+	Enemy(int id, char type, std::string name);
+	~Enemy();
 	void set_id(int id);
 	void set_type(char type);
 	void set_name(std::string name);
@@ -27,3 +29,5 @@ public:
 	unsigned short get_speed();
 	unsigned short get_experience();
 };
+
+#endif

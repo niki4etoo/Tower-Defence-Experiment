@@ -9,10 +9,10 @@
 #include <fstream>
 
 class Grid {
-private:
 	short grid[GRID_WIDTH][GRID_HEIGHT];
 public:
   Grid();
+  ~Grid();
 };
 
 #endif //_GRID_H_
