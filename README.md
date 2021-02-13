@@ -7,4 +7,4 @@ The main reason for creating this repository is to make Tower Defence game. Usin
 ### Run on linux
     1. In terminal:
         make
-        ./tde.o
+        ./tde
