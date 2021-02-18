@@ -1,5 +1,1 @@
-class Base {
 
-public:
-	Base(){}
-};
