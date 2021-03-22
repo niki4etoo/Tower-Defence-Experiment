@@ -6,10 +6,10 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-#include "include/window_manager.h"
+#include "include/ui/window_manager.h"
 
 #include "include/camera.h"
-#include "include/input_processing.h"
+#include "include/input/processing.h"
 #include "include/shader.h"
 #include "include/callbacks.h"
 

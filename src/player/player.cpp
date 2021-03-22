@@ -7,43 +7,43 @@
 
 #include "../../include/player/player.h"
 
-Player::Player(size_t id, std::string first_name, std::string last_name)
-    : id(0), first_name(""), last_name("") {}
+Player::Player(size_t id, std::string firstName, std::string lastName)
+    : id(0), firstName(""), lastName("") {}
 
 Player::~Player() {}
 
 // Player Main Setters and Getters
-void Player::set_ID(size_t id) { this->id = id; }
+void Player::setID(size_t id) { this->id = id; }
 
-void Player::set_last_name(std::string last_name) {
-	this->last_name = last_name;
+void Player::setLastName(std::string lastName) {
+	this->lastName = lastName;
 }
 
-void Player::set_first_name(std::string first_name) {
-	this->first_name = first_name;
+void Player::setFirstName(std::string firstName) {
+	this->firstName = firstName;
 }
 
-size_t Player::get_ID() { return this->id; }
+size_t Player::getID() { return this->id; }
 
-std::string Player::get_first_name() { return this->first_name; }
+std::string Player::getFirstName() { return this->firstName; }
 
-std::string Player::get_last_name() { return this->last_name; }
+std::string Player::getLastName() { return this->lastName; }
 
 // Player health setters and getters
-void Player::set_health_label(std::string health_label) {
-	this->health_label = health_label;
+void Player::setHealthLabel(std::string healthLabel) {
+	this->healthLabel = healthLabel;
 }
 
-void Player::set_health_points(size_t health_points) {
-	this->health_points = health_points;
+void Player::setHealthPoints(size_t healthPoints) {
+	this->healthPoints = healthPoints;
 }
 
-void Player::set_health_factor(float health_factor) {
-	this->health_factor = health_factor;
+void Player::setHealthFactor(float healthFactor) {
+	this->healthFactor = healthFactor;
 }
 
-std::string Player::get_health_label() { return this->health_label; }
+std::string Player::getHealthLabel() { return this->healthLabel; }
 
-size_t Player::get_health_points() { return this->health_points; }
+size_t Player::getHealthPoints() { return this->healthPoints; }
 
-float Player::get_health_factor() { return this->health_factor; }
+float Player::getHealthFactor() { return this->healthFactor; }

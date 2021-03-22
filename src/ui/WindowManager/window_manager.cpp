@@ -1,4 +1,4 @@
-#include "../../../include/window_manager.h"
+#include "../../../include/ui/window_manager.h"
 
 WindowManager::WindowManager() {
 	// glfw: initialize and configure
