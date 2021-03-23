@@ -14,20 +14,20 @@ class Enemy {
 public:
 	Enemy(int id, char type, std::string name);
 	~Enemy();
-	void set_id(int id);
-	void set_type(char type);
-	void set_name(std::string name);
-	void set_health(unsigned short health);
-	void set_damage(unsigned short damage);
-	void set_speed(unsigned short speed);
-	void set_experience(unsigned short experience);
-	int get_id();
-	char get_type();
-	std::string get_name();
-	unsigned short get_health();
-	unsigned short get_damage();
-	unsigned short get_speed();
-	unsigned short get_experience();
+	void setID(int id);
+	void setType(char type);
+	void setName(std::string name);
+	void setHealth(unsigned short health);
+	void setDamage(unsigned short damage);
+	void setSpeed(unsigned short speed);
+	void setExperience(unsigned short experience);
+	int getID();
+	char getType();
+	std::string getName();
+	unsigned short getHealth();
+	unsigned short getDamage();
+	unsigned short getSpeed();
+	unsigned short getExperience();
 };
 
 #endif

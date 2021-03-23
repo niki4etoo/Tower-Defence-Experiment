@@ -1,19 +1,19 @@
 #include "../../include/level/level.h"
 
-void Level::set_current(unsigned int current) { this->current = current; }
+void Level::setCurrent(unsigned int current) { this->current = current; }
 
-void Level::set_type(unsigned int type) { this->type = type; }
+void Level::setType(unsigned int type) { this->type = type; }
 
-void Level::set_difficulty(unsigned int difficulty) {
+void Level::setDifficulty(unsigned int difficulty) {
 	this->difficulty = difficulty;
 }
 
-void Level::set_name(std::string name) { this->name = name; }
+void Level::setName(std::string name) { this->name = name; }
 
-unsigned int Level::get_current() { return this->current; }
+unsigned int Level::getCurrent() { return this->current; }
 
-unsigned int Level::get_type() { return this->type; }
+unsigned int Level::getType() { return this->type; }
 
-unsigned int Level::get_difficulty() { return this->difficulty; }
+unsigned int Level::getDifficulty() { return this->difficulty; }
 
-std::string Level::get_name() { return this->name; }
+std::string Level::getName() { return this->name; }
