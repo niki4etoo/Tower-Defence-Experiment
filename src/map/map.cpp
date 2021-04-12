@@ -1,6 +1,10 @@
 #include "../../include/map/map.h"
 
-void Map::loadMap(){} //to do
+void Map::loadMap(Terrain *terrain){
+	std::cout << "Terrain: " << std::endl;
+	terrain->setTerrainType(1);
+	std::cout << terrain->getTerrainType() << std::endl;
+}
 
 void Map::setMapSize(size_t rows, size_t columns){
 	this->rows = rows;

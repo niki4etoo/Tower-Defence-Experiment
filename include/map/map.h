@@ -2,6 +2,9 @@
 #define MAP_H_
 
 #include <cstddef>
+#include <iostream>
+#include "terrain.h"
+
 
 #define ROWS 64
 #define COLUMNS 64
@@ -14,7 +17,7 @@ public:
 	Map(){};
 	~Map(){};
 	
-	void loadMap();
+	void loadMap(Terrain *terrain);
 	
 	void setMapSize(size_t rows, size_t columns);
 	size_t getMapSizeX();

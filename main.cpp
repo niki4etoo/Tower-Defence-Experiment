@@ -7,6 +7,7 @@
 #include <iostream>
 
 #include "include/ui/window_manager.h"
+#include "include/map/map.h"
 
 #include "include/camera.h"
 #include "include/input/processing.h"
@@ -136,6 +137,10 @@ int main(void) {
 			      (void *)(3 * sizeof(float)));
 
 	InputProcessing *input = new InputProcessing();
+
+	Map *map = new Map();
+	Terrain *terrain = new Terrain(1);
+	map->loadMap(terrain);
 
 	unsigned int fps = 0;
 	float counter = 0.0f;
