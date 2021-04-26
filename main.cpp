@@ -14,6 +14,8 @@
 #include "include/shader.h"
 #include "include/callbacks.h"
 
+#include "include/level/level.h"
+
 // timing
 float delta_time = 0.0f;
 float last_frame = 0.0f;
@@ -26,6 +28,8 @@ int main(void) {
 
 	Callbacks *callback = new Callbacks();
 
+	Level *level = new Level("Starting Point One", 1, 1, 1);
+	level->setDifficulty(2);
 	// glfw window creation
 	// --------------------
 	GLFWwindow *window = glfwCreateWindow(
