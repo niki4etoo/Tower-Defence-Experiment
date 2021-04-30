@@ -2,6 +2,7 @@
 #define TERRAIN_H_
 
 #include <cstddef>
+#include <iostream>
 
 class Terrain {
 	size_t terrainType;
@@ -28,6 +29,15 @@ public:
 	size_t getBordersType();
 	size_t getBordersTileSizeWidth();
 	size_t getBordersTileSizeHeight();
+	
+	//Types of terrains
+	void grass();
+	void rock();
+	void dessert();
+	void winter();
+	void spring();
+	void autumn();
+	
 };
 
 #endif

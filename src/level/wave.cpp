@@ -1,4 +1,5 @@
 #include "../../include/level/wave.h"
+
 Wave::Wave(){
 
 	std::cout << "A wave has spawned!" << std::endl;
