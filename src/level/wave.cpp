@@ -26,6 +26,9 @@ void Wave::setCountFactor(size_t countFactor){
 	this->countFactor = countFactor;
 }
 
+void Wave::setWaveMultiplier(float waveMultiplier){
+	this->waveMultiplier = waveMultiplier;
+}
 
 //Getters
 size_t Wave::getType(){
@@ -46,4 +49,13 @@ float Wave::getShieldFactor(){
 
 float Wave::getCountFactor(){
 	return this->countFactor;
+}
+
+float Wave::getWaveMultiplier(){
+	return this->waveMultiplier;
+}
+
+
+float Wave::factorSum(){
+	//To do	
 }
