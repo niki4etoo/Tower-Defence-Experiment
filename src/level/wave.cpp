@@ -57,5 +57,5 @@ float Wave::getWaveMultiplier(){
 
 
 float Wave::factorSum(){
-	//To do	
+	return (this->speedFactor + this->damageFactor + this->shieldFactor + this->countFactor + this->waveMultiplier);
 }
