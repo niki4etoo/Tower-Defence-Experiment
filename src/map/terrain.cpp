@@ -75,45 +75,45 @@ void Terrain::autumn(){
 }
 
 //Setters
-void Terrain::setTerrainType(size_t type){
-	this->terrainType = type;
+void Terrain::setType(size_t type){
+	this->type = type;
 }
 
-void Terrain::setTerrainTileSize(size_t width, size_t height){
-	this->terrainTileWidth = width;
-	this->terrainTileHeight = height;
+void Terrain::setTileSize(size_t width, size_t height){
+	this->tileWidth = width;
+	this->tileHeight = height;
 }
 
-void Terrain::setBordersType(size_t type){
+void Terrain::setBorderType(size_t type){
 	this->borderType = type;
 }
 
-void Terrain::setBordersTileSize(size_t width, size_t height){
-	this->borderTileWidth = width;
-	this->borderTileHeight= height;
+void Terrain::setBorderSize(size_t width, size_t height){
+	this->borderWidth = width;
+	this->borderHeight= height;
 }
 
 //Getters
-size_t Terrain::getTerrainType(){
-	return this->terrainType;
+size_t Terrain::getType(){
+	return this->type;
 }
 
-size_t Terrain::getTerrainTileSizeWidth(){
-	return this->terrainTileWidth;
+size_t Terrain::getTileWidth(){
+	return this->tileWidth;
 }
 
-size_t Terrain::getTerrainTileSizeHeight(){
-	return this->terrainTileHeight;
+size_t Terrain::getTileHeight(){
+	return this->tileHeight;
 }
 
-size_t Terrain::getBordersType(){
+size_t Terrain::getBorderType(){
 	return this->borderType;
 }
 
-size_t Terrain::getBordersTileSizeWidth(){
-	return this->borderTileWidth;
+size_t Terrain::getBorderWidth(){
+	return this->borderWidth;
 }
 
-size_t Terrain::getBordersTileSizeHeight(){
-	return this->borderTileHeight;
+size_t Terrain::getBorderHeight(){
+	return this->borderHeight;
 }

@@ -5,30 +5,32 @@
 #include <iostream>
 
 class Terrain {
-	size_t terrainType;
-	size_t terrainTileWidth;
-	size_t terrainTileHeight;
+	size_t type;
+	size_t tileWidth;
+	size_t tileHeight;
+	size_t tilePosX;
+	size_t tilePosY;
 	
 	size_t borderType;
-	size_t borderTileWidth;
-	size_t borderTileHeight;
+	size_t borderWidth;
+	size_t borderHeight;
 public:
 	Terrain(size_t type);
 	~Terrain(){};
 	
 	//Setters
-	void setTerrainType(size_t type);
-	void setTerrainTileSize(size_t width, size_t height);
-	void setBordersType(size_t type);
-	void setBordersTileSize(size_t width, size_t height);
+	void setType(size_t type);
+	void setTileSize(size_t width, size_t height);
+	void setBorderType(size_t type);
+	void setBorderSize(size_t width, size_t height);
 	
 	//Getters
-	size_t getTerrainType();
-	size_t getTerrainTileSizeWidth();
-	size_t getTerrainTileSizeHeight();
-	size_t getBordersType();
-	size_t getBordersTileSizeWidth();
-	size_t getBordersTileSizeHeight();
+	size_t getType();
+	size_t getTileWidth();
+	size_t getTileHeight();
+	size_t getBorderType();
+	size_t getBorderWidth();
+	size_t getBorderHeight();
 	
 	//Types of terrains
 	void grass();
