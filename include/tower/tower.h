@@ -16,17 +16,31 @@ private:
 	unsigned short damage;
 	unsigned short health;
 	std::string name;
+	
+	size_t posX, posY;
+	size_t width, height;
 public:
 	Tower();
 	~Tower();
+	
+	//Setters
 	void setID(size_t id);
-	size_t getID();
-	void setDamage(unsigned short damage);
-	unsigned short getDamage();
 	void setHealth(unsigned short health);
-	unsigned short getHealth();
 	void setName(std::string name);
+	void setDamage(unsigned short damage);
+	void setPosition(size_t posX, size_t posY);
+	void setSize(size_t width, size_t height);
+	
+	//Getters
+	size_t getID();
+	unsigned short getDamage();
+	unsigned short getHealth();
 	std::string getName();
+	size_t getPosX();
+	size_t getPosY();
+	size_t getWidth();
+	size_t getHeight();
+	
 };
 
 #endif /* TOWER_H_ */
