@@ -20,30 +20,35 @@ class MainMenu {
 	Button quit;	
 	
 	//Labels
-	std::string start_lbl = "New Game";
-	std::string load_lbl = "Load Game";
-	std::string settings_lbl = "Settings";
-	std::string quit_lbl = "Quit";
+	std::string startLabel = "New Game";
+	std::string loadLabel = "Load Game";
+	std::string settingsLabel = "Settings";
+	std::string quitLabel = "Quit";
 	
 	//Sizes and Positions
-	size_t btn_width = 70;
-	size_t btn_height = 25;
-	size_t btn_padding = 5;
+	size_t btnWidth = 70;
+	size_t btnHeight = 25;
+	size_t btnPadding = 5;
 	
 	//To do ( Positions of the buttons )
+	size_t btnPosX, btnPosY;
 public:
 	
 	//Setters
-	void setStartButton(Button start, size_t btn_width, size_t btn_height);
-	void setLoadButton(Button load, size_t btn_width, size_t btn_height);
-	void setSettingsButton(Button settings, size_t btn_width, size_t btn_height);
-	void setQuitButton(Button quit, size_t btn_width, size_t btn_height);
+	void setStartButton(Button start, size_t btnWidth, size_t btnHeight, size_t btnPadding);
+	void setLoadButton(Button load, size_t btnWidth, size_t btnHeight, size_t btnPadding);
+	void setSettingsButton(Button settings, size_t btnWidth, size_t btnHeight, size_t btnPadding);
+	void setQuitButton(Button quit, size_t btnWidth, size_t btnHeight, size_t btnPadding);
 	
+	void setButtonPosition(size_t btnPosX, size_t btnPosY);
 	//Getters
 	Button getStartButton();
 	Button getLoadButton();
 	Button getSettingsButton();
 	Button getQuitButton();
+	
+	size_t getButtonPosX();
+	size_t getButtonPosY();
 };
 
 #endif
