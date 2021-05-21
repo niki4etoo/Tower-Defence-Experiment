@@ -1,37 +1,34 @@
 #include "../../include/ui/main_menu.h"
 
+//To do ( position x&y of buttons)
+
 //Setters
 void MainMenu::setStartButton(Button start, size_t btnWidth, size_t btnHeight, size_t btnPadding){
 	this->start = start;
-	this->btnWidth = btnWidth;
-	this->btnHeight = btnHeight;
-	this->btnPadding = btnPadding;
+	this->start.setWidth(btnWidth);
+	this->start.setHeight(btnHeight);
+	this->start.setPadding(btnPadding);
 }
 
 void MainMenu::setLoadButton(Button load, size_t btnWidth, size_t btnHeight, size_t btnPadding){
 	this->load = load;
-	this->btnWidth = btnWidth;
-	this->btnHeight = btnHeight;
-	this->btnPadding = btnPadding;
+	this->load.setWidth(btnWidth);
+	this->load.setHeight(btnHeight);
+	this->load.setPadding(btnPadding);
 }
 
 void MainMenu::setSettingsButton(Button settings, size_t btnWidth, size_t btnHeight, size_t btnPadding){
 	this->settings = settings;
-	this->btnWidth = btnWidth;
-	this->btnHeight = btnHeight;
-	this->btnPadding = btnPadding;
+	this->settings.setWidth(btnWidth);
+	this->settings.setHeight(btnHeight);
+	this->settings.setPadding(btnPadding);
 }
 
 void MainMenu::setQuitButton(Button quit, size_t btnWidth, size_t btnHeight, size_t btnPadding){
 	this->quit = quit;
-	this->btnWidth = btnWidth;
-	this->btnHeight = btnHeight;
-	this->btnPadding = btnPadding;
-}
-
-void MainMenu::setButtonPosition(size_t btnPosX, size_t btnPosY){
-	this->btnPosX = btnPosX;
-	this->btnPosY = btnPosY;
+	this->quit.setWidth(btnWidth);
+	this->quit.setHeight(btnHeight);
+	this->quit.setPadding(btnPadding);
 }
 
 //Getters
@@ -49,12 +46,4 @@ Button MainMenu::getSettingsButton(){
 
 Button MainMenu::getQuitButton(){
 	return this->quit;
-}
-
-size_t MainMenu::getButtonPosX(){
-	return this->btnPosX;
-}
-
-size_t MainMenu::getButtonPosY(){
-	return this->btnPosY;
 }
