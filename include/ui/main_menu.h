@@ -26,10 +26,10 @@ class MainMenu {
 public:
 	
 	//Setters
-	void setStartButton(Button start, size_t btnWidth, size_t btnHeight, size_t btnPadding);
-	void setLoadButton(Button load, size_t btnWidth, size_t btnHeight, size_t btnPadding);
-	void setSettingsButton(Button settings, size_t btnWidth, size_t btnHeight, size_t btnPadding);
-	void setQuitButton(Button quit, size_t btnWidth, size_t btnHeight, size_t btnPadding);
+	void setStartButton(Button start, size_t btnWidth, size_t btnHeight, size_t btnPadding, size_t posX, size_t posY);
+	void setLoadButton(Button load, size_t btnWidth, size_t btnHeight, size_t btnPadding, size_t posX, size_t posY);
+	void setSettingsButton(Button settings, size_t btnWidth, size_t btnHeight, size_t btnPadding, size_t posX, size_t posY);
+	void setQuitButton(Button quit, size_t btnWidth, size_t btnHeight, size_t btnPadding, size_t posX, size_t posY);
 	
 	//Getters
 	Button getStartButton();
