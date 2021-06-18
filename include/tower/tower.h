@@ -8,14 +8,18 @@
 #ifndef TOWER_H_
 #define TOWER_H_
 #include <iostream>
+#include <cstddef>
 #include <string>
 
 class Tower {
-private:
 	size_t id;
 	unsigned short damage;
 	unsigned short health;
 	std::string name;
+	
+	bool isMovable = false;
+	bool isStatic = false;
+	bool isDynamic = false;
 	
 	size_t posX, posY;
 	size_t width, height;
@@ -24,6 +28,10 @@ public:
 	~Tower();
 	
 	//Setters
+	void setMovable(bool isMovable);
+	void setStatic(bool isStatic);
+	void setDynamic(bool isDynamic);
+	
 	void setID(size_t id);
 	void setHealth(unsigned short health);
 	void setName(std::string name);
@@ -32,6 +40,7 @@ public:
 	void setSize(size_t width, size_t height);
 	
 	//Getters
+	
 	size_t getID();
 	unsigned short getDamage();
 	unsigned short getHealth();

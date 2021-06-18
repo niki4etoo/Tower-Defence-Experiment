@@ -5,7 +5,7 @@
  *      Author: dexter
  */
 
-#include "../include/Tower.h"
+#include "../../include/tower/tower.h"
 
 Tower::Tower() : id(0), damage(0), health(0), name("") {
 	std::string tower = "A tower is established.";
@@ -13,6 +13,10 @@ Tower::Tower() : id(0), damage(0), health(0), name("") {
 }
 
 Tower::~Tower() {}
+
+void Tower::setMovable(bool isMovable){ this->isMovable = isMovable; }
+void Tower::setStatic(bool isStatic){ this->isStatic = isStatic; }
+void Tower::setDynamic(bool isDynamic){ this->isDynamic = isDynamic; }
 
 void Tower::setHealth(unsigned short health) { this->health = health; }
 void Tower::setName(std::string name) { this->name = name; }

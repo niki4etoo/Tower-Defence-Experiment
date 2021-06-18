@@ -39,7 +39,6 @@ public:
 	size_t getBorder();
 	size_t getPadding();
 	size_t getTextSize();
-	
 };
 
 #endif
