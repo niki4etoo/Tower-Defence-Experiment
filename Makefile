@@ -1,17 +1,22 @@
-TARGET = tde
-OBJ = glad.o
-LIBS = -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl -lm
-SRC = main.cpp src/ui/button.cpp src/ui/inventory.cpp src/ui/main_menu.cpp src/ui/WindowManager/window_manager.cpp src/ui/settings.cpp \
-	src/towers/towers.cpp src/towers/turret.cpp src/towers/tower.cpp \
-	src/player/player.cpp src/player/hud.cpp src/enemy/enemy.cpp src/level/level.cpp src/level/wave.cpp src/map/map.cpp src/map/terrain.cpp \
-	src/effects/transitions.cpp
+CC = g++
+CFLAGS = -std=c++11 -Wall -Wextra -pedantic
+LDFLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf -lvulkan
 
-# Variables for debugging
-WARNINGS = -Wall
-GDB = -ggdb
+SRCDIR = src
+OBJDIR = obj
+BINDIR = bin
 
-main:
-	g++ -std=c++11 $(WARNINGS) $(GDB) -o $(TARGET) $(OBJ) $(SRC) $(LIBS)
+EXECUTABLE = $(BINDIR)/tower_defense
 
+SOURCES = $(wildcard $(SRCDIR)/*.cpp)
+OBJECTS = $(SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(LDFLAGS) -o $@ $^
+
+$(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+.PHONY: clean
 clean:
-	rm -f $(TARGET)
+	rm -f $(OBJECTS) $(EXECUTABLE)
