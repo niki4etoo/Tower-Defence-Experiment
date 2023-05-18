@@ -1,20 +1,21 @@
-#include "include/libs/glad/glad.h"
-#include "include/libs/glm/glm.hpp"
-#include "include/libs/glm/gtc/matrix_transform.hpp"
-#include "include/libs/glm/gtc/type_ptr.hpp"
+#include "../include/lib/glad/glad.h"
+#include "../include/lib/glm/glm.hpp"
+#include "../include/lib/glm/gtc/matrix_transform.hpp"
+#include "../include/lib/glm/gtc/type_ptr.hpp"
 
-#include <GLFW/glfw3.h>
+#include "../include/lib/GLFW/glfw3.h"
 #include <iostream>
 
-#include "include/ui/window_manager.h"
-#include "include/map/map.h"
+#include "../include/ui/window_manager.h"
+#include "../include/map/map.h"
 
-#include "include/camera.h"
-#include "include/input/processing.h"
-#include "include/shader.h"
-#include "include/callbacks.h"
+#include "../include/input/processing.h"
 
-#include "include/level/level.h"
+#include "../include/utils/camera.h"
+#include "../include/utils/shader.h"
+#include "../include/utils/callbacks.h"
+
+#include "../include/level/level.h"
 
 // timing
 float delta_time = 0.0f;

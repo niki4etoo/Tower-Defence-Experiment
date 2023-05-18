@@ -1,10 +1,10 @@
 CC = g++
 CFLAGS = -std=c++11 -Wall -Wextra -pedantic
-LDFLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf -lvulkan
+LDFLAGS = -lglfw
 
 SRCDIR = src
 OBJDIR = obj
-BINDIR = bin
+BINDIR = build
 
 EXECUTABLE = $(BINDIR)/tde
 
